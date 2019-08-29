@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Moon ॐ File Mover</string>
+    <string name="action_settings">Settings</string>
+    <string name="caminho_de_origem">Caminho de origem</string>
+    <string name="caminho_de_destino">Caminho de destino</string>
+    <string name="iniciar">Iniciar</string>
+    <string name="black" />
+    <string name="muitoobrigado">Muito obrigado</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="doar">Doar</string>
+    <string name="telegram">Telegram</string>
+    <string name="escolheapastadeorigem">Escolhe a pasta de origem</string>
+    <string name="escolheapastadedestino">Escolhe a pasta de destino</string>
+    <string name="copiacompleta">Cópia completa</string>
+    <string name="erro">Erro -</string>
+    <string name="cancelado">Cancelado</string>
+    <string name="ficheirodeorigememfalta">ficheiro de origem em falta.</string>
+    <string name="apagar_ficheiros_de_origem">Apagar ficheiros de origem?</string>
+    <string name="porfavoraguarde">\n\n Ao clicar em OK vai iniciar a copia dos ficheiros \n\n Poderá levar algum tempo ate terminar, por favor nao feche a aplicação. \n\n</string>
+    <string name="acopiar">A copiar…</string>
+
+    <string name="copiainiciada">A copiar, por favor aguarde…</string>
+</resources>

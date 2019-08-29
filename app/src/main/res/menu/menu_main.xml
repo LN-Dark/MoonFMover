@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.lua.fmover.MainActivity">
+    <item
+        android:id="@+id/doar_menu"
+        android:title="@string/doar"
+        android:icon="@drawable/paypal" />
+    <item
+        android:id="@+id/telegram_menu"
+        android:title="@string/telegram"
+        android:icon="@drawable/t_logo" />
+</menu>
