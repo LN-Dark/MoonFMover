@@ -15,7 +15,7 @@
     <string name="erro">Erro -</string>
     <string name="cancelado">Cancelado</string>
     <string name="ficheirodeorigememfalta">ficheiro de origem em falta.</string>
-    <string name="apagar_ficheiros_de_origem">Apagar ficheiros de origem?</string>
+    <string name="apagar_ficheiros_de_origem">Apagar ficheiros de origem</string>
     <string name="porfavoraguarde">\n\n Ao clicar em OK vai iniciar a copia dos ficheiros \n\n Poderá levar algum tempo ate terminar, por favor nao feche a aplicação. \n\n</string>
     <string name="acopiar">A copiar…</string>
     <string name="copiainiciada">A copiar, por favor aguarde…</string>

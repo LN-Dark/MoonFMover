@@ -75,6 +75,14 @@ public class MainActivity extends AppCompatActivity {
         apagarOrigem = findViewById(R.id.apagarorigem);
         guardarLocalizacao = findViewById(R.id.guardarLocalizacoes);
         ImageView doarPaypal = findViewById(R.id.paypal);
+        ImageView githublink = findViewById(R.id.github);
+        githublink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/LN-Dark"));
+                startActivity(browserIntent);
+            }
+        });
         doarPaypal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
