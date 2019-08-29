@@ -51,19 +51,31 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
+                <Switch
+                    android:id="@+id/guardarLocalizacoes"
+                    style="@style/Widget.AppCompat.CompoundButton.Switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:padding="10dp"
+                    android:text="@string/guardar_localiza_es"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/apagarorigem" />
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/material_unelevated_button"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginEnd="10dp"
                     android:text="@string/iniciar"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/apagarorigem"
+                    app:layout_constraintTop_toBottomOf="@+id/guardarLocalizacoes"
                     app:strokeWidth="2dp" />
 
                 <com.google.android.material.textfield.TextInputLayout

@@ -56,21 +56,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class MainActivity extends AppCompatActivity {
     private DelayedProgressDialog progressDialog = new DelayedProgressDialog();
     private TextInputEditText origem;
     private TextInputEditText destino;
-    private Switch apagarOrigem;
+    private Switch apagarOrigem, guardarLocalizacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitleTextColor(getColor(R.color.white));
         toolbar.setLogo(getDrawable(R.drawable.luanegra_logo));
         setSupportActionBar(toolbar);
         MaterialButton moveBTN = findViewById(R.id.material_unelevated_button);
         apagarOrigem = findViewById(R.id.apagarorigem);
+        guardarLocalizacao = findViewById(R.id.guardarLocalizacoes);
         ImageView doarPaypal = findViewById(R.id.paypal);
         doarPaypal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,13 +81,11 @@ public class MainActivity extends AppCompatActivity {
                 final AlertDialog.Builder builder3 = new AlertDialog.Builder(MainActivity.this);
                 LinearLayout layout = new LinearLayout(MainActivity.this);
                 layout.setOrientation(LinearLayout.VERTICAL);
-
                 builder3.setIcon(getDrawable(R.drawable.luanegra_logo));
                 builder3.setTitle(getString(R.string.doar));
                 final TextView textoshare = new TextView(MainActivity.this);
                 textoshare.setText(getString(R.string.muitoobrigado));
                 textoshare.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-
                 textoshare.setTextSize(15);
                 layout.addView(textoshare);
                 final TextView espaco4 = new TextView(MainActivity.this);
@@ -113,16 +114,22 @@ public class MainActivity extends AppCompatActivity {
         });
          origem = findViewById(R.id.origem);
          destino = findViewById(R.id.destino);
-        SharedPreferences prefs = this.getSharedPreferences("LFMOVER", Context.MODE_PRIVATE);
-        String origemSaved = prefs.getString("LFMOVER_ORIGEM", " ");
-        if(!origemSaved.equals(" ")){
-           // origem.setText(origemSaved);
+        SharedPreferences prefslocal = this.getSharedPreferences("LFMOVER", Context.MODE_PRIVATE);
+        String perfslocalResult = prefslocal.getString("LFMOVER_LOCALIZACAOPREF", " ");
+        if(perfslocalResult.equals("true")){
+            guardarLocalizacao.setChecked(true);
+            SharedPreferences prefs = this.getSharedPreferences("LFMOVER", Context.MODE_PRIVATE);
+            String origemSaved = prefs.getString("LFMOVER_ORIGEM", " ");
+            if(!origemSaved.equals(" ")){
+                origem.setText(origemSaved);
+            }
+            SharedPreferences prefs2 = this.getSharedPreferences("LFMOVER", Context.MODE_PRIVATE);
+            String destinoSaved = prefs2.getString("LFMOVER_DESTINO", " ");
+            if(!destinoSaved.equals(" ")){
+                destino.setText(destinoSaved);
+            }
         }
-        SharedPreferences prefs2 = this.getSharedPreferences("LFMOVER", Context.MODE_PRIVATE);
-        String destinoSaved = prefs2.getString("LFMOVER_DESTINO", " ");
-        if(!destinoSaved.equals(" ")){
-           // destino.setText(destinoSaved);
-        }
+
         origem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -188,7 +195,6 @@ public class MainActivity extends AppCompatActivity {
                         final AlertDialog.Builder builder3 = new AlertDialog.Builder(MainActivity.this);
                         LinearLayout layout = new LinearLayout(MainActivity.this);
                         layout.setOrientation(LinearLayout.VERTICAL);
-
                         builder3.setIcon(getDrawable(R.drawable.luanegra_logo));
                         builder3.setTitle(getString(R.string.acopiar));
                         final TextView textoshare = new TextView(MainActivity.this);
@@ -203,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
                         builder3.setView(layout);
                         AlertDialog alert = builder3.create();
                         final AlertDialog finalAlert = alert;
-                        builder3.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        builder3.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 if(apagarOrigem.isChecked()){
@@ -213,10 +219,31 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
+                        builder3.setNeutralButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finalAlert.dismiss();
+                            }
+                        });
                         alert = builder3.create();
                         alert.show();
-
                     }
+                }
+            }
+        });
+        guardarLocalizacao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(guardarLocalizacao.isChecked()){
+                    SharedPreferences prefs = getSharedPreferences("LFMOVER", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("LFMOVER_LOCALIZACAOPREF", "true");
+                    editor.apply();
+                }else {
+                    SharedPreferences prefs = getSharedPreferences("LFMOVER", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("LFMOVER_LOCALIZACAOPREF", "false");
+                    editor.apply();
                 }
             }
         });

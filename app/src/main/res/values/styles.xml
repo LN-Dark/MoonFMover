@@ -1,15 +1,59 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">#212121</item>
+        <item name="colorPrimaryDark">#212121</item>
+        <item name="colorSecondary">#212121</item>
+        <item name="colorError">#F44336</item>
+        <item name="android:colorBackground">@color/colorBackground_light</item>
+        <item name="textAppearanceButton">@style/AppTextAppearance.Button_Light</item>
+        <item name="materialButtonStyle">@style/AppButton_Light</item>
+        <item name="materialCardViewStyle">@style/AppCard_Light</item>
+        <item name="bottomNavigationStyle">@style/AppBottomNavigation_Light</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppCard_Light" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">6dp</item>
+    </style>
+
+    <style name="AppBottomNavigation_Light" parent="Widget.MaterialComponents.BottomNavigationView.Colored" />
+
+    <style name="AppButton_Light" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTextField_Light" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/colorChatLighter</item>
+    </style>
+
+    <style name="AppTextAppearance.Button_Light" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="AppCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">6dp</item>
+    </style>
+
+    <style name="AppBottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView.Colored" />
+
+    <style name="AppButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTextField" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/colorBackground_light</item>
+    </style>
+
+    <style name="AppTextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.ActionBar" />
