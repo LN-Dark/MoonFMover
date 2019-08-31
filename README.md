@@ -8,3 +8,5 @@ You can save the locations and just open the app and click copy to transfer the 
 
 I am also using it to move Telegram X downloads to the Downloads folder.
 
+APK to test is in MoonFMover/app/release/
+
